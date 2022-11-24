@@ -15,9 +15,9 @@
     // 本アプリで使うクラスの指定。const は定数の宣言。変更できない変数と思えば良い。
     const db = "m";
 
-    function fetchAll() {
+function fetchAll() {
       let TestDataClass = ncmb.DataStore(db);
-      TestDataClass.fetchAll()
+      TestDataClass.order("name", false).fetchAll()
         .then(function(results) {
           showResults(results);
         })
