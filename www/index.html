@@ -34,7 +34,7 @@ function fetchAll() {
         })
     }
 
-    function searchLevel() {
+    function searchLevelLt() {
         let level = parseInt($("#level").val());
         let TestDataClass = ncmb.DataStore(db);
         TestDataClass
@@ -55,11 +55,11 @@ function fetchAll() {
         })
     }
 
-    function searchLevelGT() {
-        let level = parseInt($("#level").val());
+    function searchpopulationGT() {
+        let population = parseInt($("#population").val());
         let TestDataClass = ncmb.DataStore(db);
         TestDataClass
-        .greaterThan("level", level)
+        .greaterThan("population", population)
         .fetchAll()
         .then(function(results) {
            showResults(results);
@@ -70,7 +70,7 @@ function fetchAll() {
 
     function showResults(results) {
       // テーブルのヘッダを生成
-      let msg = "<table><tr><th>name</th><th>area</th><th>popu</th><th>state</th></tr>";
+      let msg = "<table><tr><th>name</th><th>area</th><th>population</th><th>state</th></tr>";
       for (let i = 0; i < results.length; i++) {
         // 各データを収めた表の列を生成
         msg += "<tr>";
@@ -98,16 +98,16 @@ function fetchAll() {
     <input id="state" type="text" placeholder="Country state">
   </div>
   <div>
-    <label for="level">poplation:</label>
-    <input id="level" type="number" placeholder="Country poplation">
+    <label for="population">population:</label>
+    <input id="population" type="number" placeholder="Country population">
   </div>
   <div id="button">
     <button class="btn" onclick="fetchAll()">Fetch All</button>
     <button class="btn" onclick="searchName()">Name</button>    
     <br>
     <button class="btn" onclick="searchLevelLT()">age &lt</button>
-    <button class="btn" onclick="searchLevel()">age</button>
-    <button class="btn" onclick="searchLevelGT()">age &gt</button>
+    <button class="btn" onclick="searchLevel()">population &lt</button>
+    <button class="btn" onclick="searchpopulationGT()">population &gt</button>
   </div>
   <div id="message">message area</div>
   
