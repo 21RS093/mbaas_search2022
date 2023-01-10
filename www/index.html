@@ -34,11 +34,11 @@ function fetchAll() {
         })
     }
 
-    function searchLevelLt() {
-        let level = parseInt($("#level").val());
+    function searchState() {
+        let state = $("#state").val();
         let TestDataClass = ncmb.DataStore(db);
         TestDataClass
-        .equalTo("level", level)
+        .equalTo("state", state)
         .fetchAll()
         .then(function(results) {
            showResults(results);
@@ -75,7 +75,7 @@ function fetchAll() {
         // 各データを収めた表の列を生成
         msg += "<tr>";
         msg += "<td>" + results[i].name + "</td>";
-        msg += "<td class='num'>" + results[i].area + "</td>";
+        msg += "<td class='num'>" + results[i].area + "</td>"
         msg += "<td class='num'>" + results[i].population + "</td>";
         msg += "<td class='num'>" + results[i].state + "</td>";
         msg += "</tr>";
@@ -105,7 +105,9 @@ function fetchAll() {
     <button class="btn" onclick="fetchAll()">Fetch All</button>
     <button class="btn" onclick="searchName()">Name</button>    
     <br>
-    <button class="btn" onclick="searchLevelLT()">age &lt</button>
+    <button class="btn" onclick="searchState()">state</button>
+    <button class="btn" onclick="searchAreaLT()">area &lt</button>
+    <br>
     <button class="btn" onclick="searchLevel()">population &lt</button>
     <button class="btn" onclick="searchpopulationGT()">population &gt</button>
   </div>
