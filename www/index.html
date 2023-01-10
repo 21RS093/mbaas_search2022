@@ -44,11 +44,11 @@ function fetchAll() {
            showResults(results);
         })
     }
-     function searchLevel() {
-        let level = parseInt($("#level").val());
+     function searchAreaGT() {
+        let area = parseInt($("#area").val());
         let TestDataClass = ncmb.DataStore(db);
         TestDataClass
-        .lessThan("level", level)
+        .greaterThan("area", area)
         .fetchAll()
         .then(function(results) {
            showResults(results);
@@ -110,7 +110,7 @@ function fetchAll() {
     <button class="btn" onclick="searchName()">Name</button>    
     <br>
     <button class="btn" onclick="searchState()">state</button>
-    <button class="btn" onclick="searchAreaLT()">area &lt</button>
+    <button class="btn" onclick="searchAreaGT()">area &gt</button>
     <br>
     <button class="btn" onclick="searchLevel()">population &lt</button>
     <button class="btn" onclick="searchpopulationGT()">population &gt</button>
